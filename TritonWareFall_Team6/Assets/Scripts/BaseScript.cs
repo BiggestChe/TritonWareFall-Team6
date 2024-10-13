@@ -8,6 +8,7 @@ public class BaseScript : MonoBehaviour
     void Start()
     {
         //lol
+        //working
         
     }
 
