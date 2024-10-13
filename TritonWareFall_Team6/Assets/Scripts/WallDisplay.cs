@@ -23,9 +23,12 @@ public class WallDisplay : MonoBehaviour
         }
         set
         {
-            if(value < 0)
-                value = backgroundSprites.Length - 1; // Wraps around from 0 to last sprite
-            currentSpriteIndex = value % backgroundSprites.Length;
+            if (value >= backgroundSprites.Length)
+                currentSpriteIndex = 1; // Wraps around from 5 to 1
+            else if (value < 0)
+                currentSpriteIndex = backgroundSprites.Length - 1; // Wraps around from 0 to last sprite
+            else
+                currentSpriteIndex = value;
         }
     }
 
