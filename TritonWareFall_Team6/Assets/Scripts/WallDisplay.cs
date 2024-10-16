@@ -9,6 +9,7 @@ public class WallDisplay : MonoBehaviour
 
     
     public Sprite[] backgroundSprites;
+    public Wall[] wallList;
     private SpriteRenderer spriteRenderer;
     private int currentSpriteIndex = 0;
 
@@ -23,12 +24,9 @@ public class WallDisplay : MonoBehaviour
         }
         set
         {
-            if (value >= backgroundSprites.Length)
-                currentSpriteIndex = 1; // Wraps around from 5 to 1
-            else if (value < 0)
-                currentSpriteIndex = backgroundSprites.Length - 1; // Wraps around from 0 to last sprite
-            else
-                currentSpriteIndex = value;
+            if (value < 0)
+                value = backgroundSprites.Length - 1; // Wraps around from 0 to last sprite
+            currentSpriteIndex = value % backgroundSprites.Length;
         }
     }
 
@@ -37,6 +35,12 @@ public class WallDisplay : MonoBehaviour
         // Cache the SpriteRenderer component for easy access
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = backgroundSprites[currentSpriteIndex]; // Set the initial sprite
+
+        for(int i = 0; i < 4; i++) { // add 4 walls
+            Sprite sprite = backgroundSprites[i];
+            Wall wall = new Wall(sprite, i);
+            wallList[i] = wall;
+        }
     }
 
     void Update()
