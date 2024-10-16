@@ -15,6 +15,10 @@ public class Object
         spriteRenderer.sprite = this.sprite; // Assign the sprite to the SpriteRenderer
     }
 
+    public void render() {
+        // No logic for now, will add when there's objects sprite
+    }
+
 
 
 }

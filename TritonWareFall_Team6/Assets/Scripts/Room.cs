@@ -18,8 +18,10 @@ public class Wall
         return this.backgroundSprite;
     }
 
-    public void renderWall() {
-
+    public void render() {
+        for(int i = 0; i < objectList.Length; i++) {
+            objectList[i].render();
+        }
     }
 
 
