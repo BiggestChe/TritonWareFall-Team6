@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wall
 {
-    public Object[] objectList;
+    public List<WallObject> objectList = new List<WallObject>();
     private Sprite backgroundSprite;
     private int roomIndex;
 
@@ -12,6 +12,13 @@ public class Wall
         // In the future, sprite should be loaded from the Walli folders instead of passed thru from WallDisplay.
         this.backgroundSprite = backgroundSprite;
         this.roomIndex = roomIndex;
+
+
+        // For testing
+        if(roomIndex == 1) {
+            WallObject testobj = new WallObject("Art/Wall_1/Objects/test");
+            objectList.Add(testobj);
+        }
     }
 
     public Sprite getSprite() {
@@ -19,7 +26,7 @@ public class Wall
     }
 
     public void render() {
-        for(int i = 0; i < objectList.Length; i++) {
+        for(int i = 0; i < objectList.Count; i++) {
             objectList[i].render();
         }
     }
