@@ -8,7 +8,7 @@ public class Timerscript : MonoBehaviour
 
 {
     public TextMeshProUGUI textbox; 
-    float time = 3600f;
+    float time = 600f;
     // Start is called before the first frame update
     void Start()
     {
