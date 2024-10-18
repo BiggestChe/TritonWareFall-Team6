@@ -9,8 +9,9 @@ public class WallDisplay : MonoBehaviour
 
     
     public Sprite[] backgroundSprites;
+    public Wall[] wallList = new Wall[4];
     private SpriteRenderer spriteRenderer;
-    private int currentSpriteIndex = 0;
+    private int currentWallIndex = 0;
 
     public float fadeDuration = 0.2f; // Duration for fade in/out transitions
 
@@ -19,16 +20,14 @@ public class WallDisplay : MonoBehaviour
     {
         get 
         { 
-            return currentSpriteIndex; 
+            return currentWallIndex; 
         }
         set
         {
-            if (value >= backgroundSprites.Length)
-                currentSpriteIndex = 1; // Wraps around from 5 to 1
-            else if (value < 0)
-                currentSpriteIndex = backgroundSprites.Length - 1; // Wraps around from 0 to last sprite
-            else
-                currentSpriteIndex = value;
+            if (value < 0)
+                value = wallList.Length - 1; // Wraps around from 0 to last sprite
+            value = value % wallList.Length;
+            currentWallIndex = value;
         }
     }
 
@@ -36,7 +35,13 @@ public class WallDisplay : MonoBehaviour
     {
         // Cache the SpriteRenderer component for easy access
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = backgroundSprites[currentSpriteIndex]; // Set the initial sprite
+        spriteRenderer.sprite = backgroundSprites[currentWallIndex]; // Set the initial sprite
+
+        for(int i = 0; i < 4; i++) { // add 4 walls
+            Sprite sprite = backgroundSprites[i];
+            Wall wall = new Wall(sprite, i);
+            wallList[i] = wall;
+        }
     }
 
     void Update()
@@ -44,26 +49,26 @@ public class WallDisplay : MonoBehaviour
         // Move left
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            StartCoroutine(FadeTransition(currentSpriteIndex - 1));
+            StartCoroutine(FadeTransition(currentWallIndex - 1));
         }
 
         // Move right
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            StartCoroutine(FadeTransition(currentSpriteIndex + 1));
+            StartCoroutine(FadeTransition(currentWallIndex + 1));
         }
     }
 
 //FADING IS OPTIONAL, MAY FEEL SLOW LOL
     // Coroutine to handle the fade transition
-    IEnumerator FadeTransition(int newSpriteIndex)
+    IEnumerator FadeTransition(int newWallIndex)
     {
         // Fade out
         yield return StartCoroutine(FadeOut());
 
         // Change the sprite after fade out
-        CurrentWall = newSpriteIndex;
-        spriteRenderer.sprite = backgroundSprites[currentSpriteIndex];
+        CurrentWall = newWallIndex;
+        spriteRenderer.sprite = wallList[CurrentWall].getSprite();
 
         // Fade in
         yield return StartCoroutine(FadeIn());
