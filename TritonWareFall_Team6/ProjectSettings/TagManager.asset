@@ -14,8 +14,8 @@ TagManager:
   - UI
   - Wall1
   - Wall2
-  - 
-  - 
+  - Wall3
+  - Wall4
   - 
   - 
   - 
@@ -41,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Wall1
+    uniqueID: 3684909211
+    locked: 0
+  - name: Wall2
+    uniqueID: 3166151407
+    locked: 0
+  - name: Wall3
+    uniqueID: 3050138413
+    locked: 0
+  - name: Wall4
+    uniqueID: 4274155331
     locked: 0

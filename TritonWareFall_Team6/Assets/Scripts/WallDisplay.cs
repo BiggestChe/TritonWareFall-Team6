@@ -9,7 +9,8 @@ public class WallDisplay : MonoBehaviour
 
     
     public Sprite[] backgroundSprites;
-    public Wall[] wallList = new Wall[4];
+
+    public Wall[] wallList = new Wall[4]; 
     private SpriteRenderer spriteRenderer;
     private int currentWallIndex = 0;
 
