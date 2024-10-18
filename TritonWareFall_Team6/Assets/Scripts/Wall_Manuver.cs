@@ -57,7 +57,7 @@ public class WallSwitcher : MonoBehaviour
         }
         */
 
-                for (int i = 0; i < wallObjects.Length; i++)
+        for (int i = 0; i < wallObjects.Length; i++)
         {
             wallObjects[i].SetActive(i == currentWallIndex);  // Only enable the active wall's objects
         }
