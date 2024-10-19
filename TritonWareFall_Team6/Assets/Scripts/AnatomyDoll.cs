@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnatomyDoll : MonoBehaviour, IClickable
+public class AnatomyDoll : MonoBehaviour,IClickable
 {
-    public Dialogue_Script dialogue;
-    // private Puzzle1 puzzle;
-    public string[] dialogueLines;
-    public void Click()
-    {
-        dialogue.TriggerDialogue(dialogueLines);
-        // puzzle.run();
+    public Puzzle3 puzzle;
+    public new Collider2D collider2D;
+    public void Click() {
+        puzzle.run(true);
+    }
+    public void run(bool bval) {
+        collider2D.enabled = bval;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        collider2D.enabled = true;
     }
 
     // Update is called once per frame

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Organ : IClickable {
+public class Organ : MonoBehaviour, IClickable {
     private SpriteRenderer spriteRenderer;
-    private Sprite organImg;
+    public Sprite organImg;
 
     public void Click() {
         
@@ -12,8 +12,10 @@ public class Organ : IClickable {
 
     // Start is called before the first frame update
     void Start()
-    {
-        
+    { 
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = false;
+        collider2D.enabled = false;
     }
 
     // Update is called once per frame

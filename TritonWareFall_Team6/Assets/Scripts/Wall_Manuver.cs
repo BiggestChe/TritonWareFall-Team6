@@ -42,21 +42,6 @@ public class WallSwitcher : MonoBehaviour
         // Set the camera to only render the current wall
         mainCamera.cullingMask = layerMask;
 
-        /*
-        if(currentWallIndex != 0) {
-        for (int i = 0; i < wallObjects.Length; i++)
-        {
-            wallObjects[i].SetActive(false);  // Only enable the active wall's objects
-        }
-        }
-        else {
-        for (int i = 0; i < wallObjects.Length; i++)
-        {
-            wallObjects[i].SetActive(true);  // Only enable the active wall's objects
-        }
-        }
-        */
-
         for (int i = 0; i < wallObjects.Length; i++)
         {
             wallObjects[i].SetActive(i == currentWallIndex);  // Only enable the active wall's objects
