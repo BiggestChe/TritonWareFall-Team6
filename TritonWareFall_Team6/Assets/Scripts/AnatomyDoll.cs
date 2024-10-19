@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnatomyDoll : MonoBehaviour,IClickable
 {
     public Puzzle3 puzzle;
-    public new Collider2D collider2D;
+    private new Collider2D collider2D;
     public void Click() {
         puzzle.run(true);
     }
@@ -16,6 +16,7 @@ public class AnatomyDoll : MonoBehaviour,IClickable
     // Start is called before the first frame update
     void Start()
     {
+        collider2D = GetComponent<Collider2D>();
         collider2D.enabled = true;
     }
 
