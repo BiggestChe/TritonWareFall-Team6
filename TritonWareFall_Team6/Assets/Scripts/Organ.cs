@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BabyHead : MonoBehaviour, IClickable
-{
-    public Dialogue_Script dialogue;
-    public string[] dialogueLines;
-    public void Click()
-    {
+public class Organ : IClickable {
+    private SpriteRenderer spriteRenderer;
+    private Sprite organImg;
 
-        dialogue.TriggerDialogue(dialogueLines);
-
+    public void Click() {
+        
     }
 
     // Start is called before the first frame update

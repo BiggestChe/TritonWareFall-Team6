@@ -54,3 +54,6 @@ TagManager:
   - name: Wall4
     uniqueID: 4274155331
     locked: 0
+  - name: PuzzleLayer
+    uniqueID: 122427781
+    locked: 0
