@@ -16,8 +16,8 @@ TagManager:
   - Wall2
   - Wall3
   - Wall4
-  - 
-  - 
+  - CursorLayer
+  - StartScreen
   - 
   - 
   - 
@@ -54,6 +54,9 @@ TagManager:
   - name: Wall4
     uniqueID: 4274155331
     locked: 0
-  - name: PuzzleLayer
-    uniqueID: 122427781
+  - name: Cursor
+    uniqueID: 3937728677
+    locked: 0
+  - name: Help
+    uniqueID: 584229253
     locked: 0
