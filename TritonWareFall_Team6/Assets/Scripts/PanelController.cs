@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PanelController : MonoBehaviour
+public class PanelController : MonoBehaviour, IClickable
 {
     public GameObject simonSaysPanel; // Reference to the panel
 
@@ -15,4 +15,9 @@ public class PanelController : MonoBehaviour
     {
         simonSaysPanel.SetActive(false); // Set the panel to be inactive (hidden)
     }
+
+    public void Click()
+    {
+        ShowPanel();
+        }
 }
