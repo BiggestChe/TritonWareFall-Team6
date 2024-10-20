@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloseButton : MonoBehaviour, IClickable
+public class Puzzle2CloseButton : MonoBehaviour, IClickable
 {
-    public AnatomyDoll anatomyDoll;
-    public Puzzle3 puzzle;
+    public Wardrobe wardrobe;
+    public Puzzle2 puzzle;
     private new Collider2D collider2D;
     private SpriteRenderer spriteRenderer;
     public Sprite buttonImg;
@@ -13,7 +13,7 @@ public class CloseButton : MonoBehaviour, IClickable
     {
         puzzle.reset();
         puzzle.run(false);
-        anatomyDoll.run(true);
+        wardrobe.run(true);
     }
     public void run(bool bval) {
         spriteRenderer.enabled = bval; 

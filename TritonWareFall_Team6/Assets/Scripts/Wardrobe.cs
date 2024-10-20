@@ -2,22 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AnatomyDoll : MonoBehaviour,IClickable
+public class Wardrobe : MonoBehaviour,IClickable
 {
     public SingleDialogue dialogue;
     public string[] dialogueLines;
-    public Puzzle3 puzzle;
-    public bool hasScalpel = false;
+    public Puzzle2 puzzle;
+    // public bool hasScalpel = false;
     private new Collider2D collider2D;
     public void Click() {
-        if(hasScalpel) {
-            dialogue.TriggerDialogue(dialogueLines[1]);
-            puzzle.run(true);
-            this.run(false);
-        }
-        else {
-            dialogue.TriggerDialogue(dialogueLines[0]);
-        }
+        puzzle.run(true);
+        this.run(false);
     }
     public void run(bool bval) {
         collider2D.enabled = bval;
