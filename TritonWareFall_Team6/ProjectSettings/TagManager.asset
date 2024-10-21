@@ -57,6 +57,6 @@ TagManager:
   - name: Cursor
     uniqueID: 3937728677
     locked: 0
-  - name: Help
+  - name: StartScreen
     uniqueID: 584229253
     locked: 0

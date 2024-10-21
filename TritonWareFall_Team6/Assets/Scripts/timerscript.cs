@@ -8,6 +8,8 @@ public class Timerscript : MonoBehaviour
 
 {
     public TextMeshProUGUI textbox; 
+
+    public bool TimerOn = false;
     float time = 600f;
     // Start is called before the first frame update
     void Start()
@@ -31,5 +33,9 @@ public class Timerscript : MonoBehaviour
         textbox.text = string.Format("{0:00} : {1:00}", minutes, seconds);
 
         
+    }
+
+    public void TurnTimerOn(){
+        TimerOn = false;
     }
 }

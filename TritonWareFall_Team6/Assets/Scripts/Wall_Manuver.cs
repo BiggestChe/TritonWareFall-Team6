@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;  // Required for UI components
 using System.Collections;
+using System.Runtime.Serialization.Formatters;
 
 public class WallSwitcher : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class WallSwitcher : MonoBehaviour
     private int currentWallIndex = 0;
     private string[] wallLayers = { "Wall1", "Wall2", "Wall3", "Wall4" };
 
+    public bool CanMove;
+
     void Start()
     {
         ShowCurrentWall();  // Start by showing the first wall (Wall1)
@@ -20,7 +23,8 @@ public class WallSwitcher : MonoBehaviour
 
     void Update()
     {
-        // Switch to the next wall when the right arrow key is pressed
+        if(CanMove){
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             currentWallIndex = (currentWallIndex + 1) % wallLayers.Length;
@@ -33,6 +37,12 @@ public class WallSwitcher : MonoBehaviour
             currentWallIndex = (currentWallIndex - 1 + wallLayers.Length) % wallLayers.Length;
             StartCoroutine(FadeAndSwitchWall());
         }
+        }
+    }
+
+    public void MovementActive(){
+        CanMove = true;
+
     }
 
     // Coroutine to handle fade in/out effect and switch walls
