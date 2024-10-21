@@ -45,6 +45,11 @@ public class WallSwitcher : MonoBehaviour
 
     }
 
+    public void MovementOff(){
+        CanMove = false;
+
+    }
+
     // Coroutine to handle fade in/out effect and switch walls
     IEnumerator FadeAndSwitchWall()
     {

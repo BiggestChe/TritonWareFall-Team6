@@ -17,9 +17,6 @@ public class script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Update the cursor position to follow the mouse
-
-
         // Change sprite based on mouse button state
         if (Input.GetMouseButton(0))
         {
@@ -27,7 +24,7 @@ public class script : MonoBehaviour
         }
         else
         {
-                    Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(cursor, Vector2.zero, CursorMode.Auto);
 
         }
     }

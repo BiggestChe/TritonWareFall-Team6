@@ -5,12 +5,14 @@ public class Scalpel : MonoBehaviour
 {
     public bool scalpel = false;
     public Image scalpelIcon; // Reference to the UI Image for the scalpel icon
+    public AnatomyDoll anatomyDoll; // Reference to the AnatomyDoll script
 
     public void SetScalpelTrue()
     {
         scalpel = true;
         Debug.Log("Scalpel acquired!");
         ShowScalpelIcon();
+        anatomyDoll.SetPlayerHasScalpel(true); // Inform the AnatomyDoll that the player has the scalpel
     }
 
     public void ShowScalpelIcon()
